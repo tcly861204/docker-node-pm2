@@ -21,4 +21,4 @@ RUN npm install
 EXPOSE 80
 
 # 设置容器启动时执行
-CMD ["npm", "start"]
+CMD ["pm2-runtime", "app.js", "--watch"]
