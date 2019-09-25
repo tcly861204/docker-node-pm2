@@ -1,11 +1,20 @@
 language: node_js
+
 node_js:
   - "12"
-  
+
+branches:
+  only:
+  - master
+
 services:
   - docker
 
-script:
+before_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t wtc/node-pm2:latest .
-  - docker push wtc/node-pm2:latest
+
+script:
+  - docker build -t tcly861204/node:latest .
+
+deploy:
+  - docker push tcly861204/node:latest
