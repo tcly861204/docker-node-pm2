@@ -13,8 +13,12 @@ COPY ./app/* /wwwroot
 # 安装pm2
 RUN npm install -g pm2
 
+WORKDIR /wwwroot
+
+RUN npm install
+
 #开启80端口
 EXPOSE 80
 
 # 设置容器启动时执行
-CMD ["pm2-runtime", "app.js", "--watch"]
+CMD npm run pm2
