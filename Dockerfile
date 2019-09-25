@@ -8,7 +8,7 @@ LABEL tcly861204 356671808@qq.com
 WORKDIR /wwwroot
 
 # 复制文件到容器
-COPY ./app/* /wwwroot
+COPY /app/* /wwwroot
 
 # 安装pm2
 RUN npm install -g pm2
